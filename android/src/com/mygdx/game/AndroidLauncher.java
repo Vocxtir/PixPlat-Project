@@ -15,6 +15,6 @@ public class AndroidLauncher extends AndroidApplication {
 	}
 
 	public void helloGit(){
-		
+
 	}
 }
