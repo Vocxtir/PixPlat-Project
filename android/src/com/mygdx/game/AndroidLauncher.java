@@ -13,4 +13,8 @@ public class AndroidLauncher extends AndroidApplication {
 		AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
 		initialize(new MyGdxGame(), config);
 	}
+
+	public void helloGit(){
+		return ;
+	}
 }
