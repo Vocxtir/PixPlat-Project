@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="240" height="13" tilewidth="16" tileheight="16" nextobjectid="44">
+ <tileset firstgid="1" name="BlockBrick_Gray" tilewidth="16" tileheight="16" spacing="2" margin="1" tilecount="3136" columns="56">
+  <image source="Sprite/Backgrounds/game_bg_03_001-hd.png" width="1024" height="1024"/>
+ </tileset>
+ <tileset firstgid="3137" name=" NPCs" tilewidth="16" tileheight="16" spacing="2" margin="1" tilecount="945" columns="35">
+  <image source="Sprite/PC Computer - Cave Story Dokutsu Monogatari - NPCs.png" width="640" height="496"/>
+ </tileset>
+ <tileset firstgid="4082" name="groundSquare_03_001" tilewidth="16" tileheight="16" spacing="2" margin="1" tilecount="49" columns="7">
+  <image source="Sprite/Grounds/groundSquare_03_001.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="4131" name="BackGroundsThings" tilewidth="16" tileheight="16" spacing="2" margin="1" tilecount="720" columns="36">
+  <image source="Sprite/PC Computer - Cave Story Dokutsu Monogatari - Stage Backgrounds and Stage Icons.png" width="650" height="369"/>
+ </tileset>
+ <tileset firstgid="4851" name="Things" tilewidth="16" tileheight="16" spacing="2" margin="1" tilecount="2128" columns="14">
+  <image source="Sprite/PC Computer - Cave Story Dokutsu Monogatari - Tiles.png" width="257" height="2737"/>
+ </tileset>
+ <layer name="Background" width="240" height="13">
+  <data encoding="base64" compression="zlib">
+   eJzFWtlWFDEQnS/AaUFRPgMXQJbPALdx4WNdUED8DNxAdJ6tPnSdKYu6qdwwRx/qnJkkfeumUjfp1MzBeDT6IPZR7FDsSOxY7JPYidhnsVNnX8TeiL0Veyf2Pvh+UIHb29S1o/FZO/LP8jpJnmHxIv4t+C3zuE7c0HP2e/as7bvRjUZjsU7sptii2JLYLbHzBAfxR1zZ/JkXzv9o/y72Q+xsfBnHn2IXYr/Efo8v9VWjRV3LFh23PKP8lLfuK18b8OznVn3a5zIMy/XbsAasX1bXLD7KB/s9mofNJdt3T3R6X+yB2EOxNbF1sY1BwxG3Et+zwJ9yi3ij+WQ4KE5Rmx+Pno34oLEZf1Y3SON6BrdoMcuDyN8dWfO7Zg9f6GZ7fAsP7WO5ROdehmG56nnE+tX+2r2Axde43hZb7mbxtt+jedhzVfuYXDg040p8lwJ/yi3ijeaT4aA4RW1+PHo24oPG+lh5/qxuohisdPj9uAYzy4PIn8/R1W62x9v3/Nq5aR/DBe0RGYblqucRGwPtr90L5jEvn0vRPOy5qn1MfllfJb7rgb9HHeZqx2yKbYltF3A2h88oTlGbH4+e9dz672isj5Xnz+omisFOd1W708FqMLM8iPyV9LkA8rrEQ/sYLoiDx6jRA+PX4tXuBfOYF9LdRJ55IfZS7JXYa7HnYntij8n8sr5KfHv8yC/ielzg2bcj3aP2KHYTxxPF2HPrv6OxPlaeP6ubKAb73dV9dGVYjxrMXbPWT8Seij0rrNE+yFGrQXZP0D7/7l3yU7tH1Ogh24+snwwvm7vHY+8aXnfRGIvH5JeNYZ8TzP3zpHBeXIC5KAbSPWrP9O3neFTgtlSITYRj+bO6Qe167uo+utPF53L0bD9uOvRn9Wom13zNvOY8OR3n55vVeg2XGp1n+5HlwL5bnCdxY89brzs7Rn2U8M6HvCvFTvOWuX/23JAOlrt4LoqBYhi1o3XO6maZRpl6l6+DlO4kzP1F99H9Lj6XkS5XBg2XsKdErrFniq3J1NbSa7nUvAsw7wvsu0Wfd7XnOxs3n+/qo7S/9LbXlWOnZwhz/9S6EIpHqa6Fnona0TqX8Gvew5l6l6+DlO4kzP1Fz1TUH+mSyZnrvrNmvlZNDrfUkSMuLfdhqxHNIeXD6jd6Z0bnO3sWe97qA/FjatEbhblFbdtB21ZFO+KCxqN1tuMjvCiOFh/hbhc41txJmPtL1h9pmsmZ2txF+dqqa59fqI4ccfHY2XwzLizXCeAa4bDv5n6d1Ae6lzHvchPDF83R5patR6E6VdSOuNjx1j9a51IdrMeL4mj5INxSXa7mzsvcj7P+SNMtvx+11nBYXaP8ivYnFH+Pnc0348Jy1fcKH48Ihz3b/TqV6imL5BrX1Jfm8b8mxMWOR/5r62DLII5ZHUzxa39f0jW3NeH+82o3+10mqglpzbelltzy+xGreZ0Xq2uEx3D22Gx92HNpqV9FdRXWT82cS2u/Rq5xTX2J+Z8Vakdc7Hjkv7YO1uOV+GR7cO3vS+j/Kqphq2O7trvd39pdcFbS9b/QfKY7Fo8Zy2Jn41vqV9H6sn5Yv9vAL/v/qFJ9aV74WTvyPy+e2R6M2v8A9FcKnA==
+  </data>
+ </layer>
+ <layer name="Graphics" width="240" height="13">
+  <data encoding="base64" compression="zlib">
+   eJztmFFugzAMhjlC7randi+we4y+tL1H25eVUw6rWLO8xHYqFRrp/yQLEofEgP8E0nVAs0tdt09bRwEAqIW0ywYNA9AOpNnvxaBfANqCdHtZDBoGoC1It9f0dw79AtAuWIMBaBvS8Aj9rkafHjbM9oXnDoLwOvuJnNkE1uxxMWgYROF9Z1pnD8iXTSDNnmY7Cw1zGYASrF3eu7ohX1bnHdZajkHGkosr589dC16PpV3+nsb+1Wvp32CtlTHo7wCtSenv0///9bU1fFKxS8vdT03dOeCL9ls7ZqSd1u6HMN57lnvQ1nwbqSv5dB54fXjtczll5Vk07tLekjemZTLXctd7/VlrZkRLvTH+YPhk7Pp+vHvW77FU9t47xXKf7UccpUnf9ETdFPBF+60dM9KupF2p4VEcn51TPF/NnBlpr/8fS3XeHFsaW6+V3pie5WKK9mfNzzrW3DzkXSu1UnqeVtmK2St7751i+QXGgzmL
+  </data>
+ </layer>
+ <objectgroup name="Ground">
+  <object id="12" x="1" y="174" width="782" height="32"/>
+  <object id="15" x="782.667" y="173.333" width="222.667" height="32"/>
+  <object id="16" x="1008" y="159.333" width="48" height="48"/>
+  <object id="17" x="1024" y="143.333" width="78.6667" height="15.3333"/>
+  <object id="18" x="1040" y="126.667" width="63.3333" height="14"/>
+  <object id="19" x="1056" y="112" width="47.3333" height="13.3333"/>
+  <object id="20" x="1122" y="160.667" width="61.3333" height="30.6667"/>
+  <object id="22" x="1136" y="176.667" width="134" height="32"/>
+  <object id="23" x="1072" y="32.6667" width="30.6667" height="46.6667"/>
+  <object id="24" x="1088.67" y="16" width="62" height="46"/>
+  <object id="25" x="1119.33" y="49.3333" width="49.3333" height="30.6667"/>
+  <object id="26" x="1136.67" y="78.6667" width="46.6667" height="16"/>
+  <object id="27" x="1153.33" y="94.6667" width="30" height="16"/>
+  <object id="28" x="1104" y="0" width="30.6667" height="14.6667"/>
+  <object id="29" x="1056" y="176.667" width="14.6667" height="14"/>
+  <object id="30" x="1056" y="158.667" width="30.6667" height="16"/>
+  <object id="31" x="1270.67" y="174.667" width="1014.67" height="34.6667"/>
+  <object id="32" x="2321.33" y="174.667" width="653.333" height="34.6667"/>
+  <object id="33" x="2560" y="159.333" width="64" height="14.6667"/>
+  <object id="34" x="2576" y="144" width="46.6667" height="18.6667"/>
+  <object id="35" x="2592" y="112" width="110.667" height="32"/>
+  <object id="36" x="2625.33" y="96" width="61.3333" height="14.6667"/>
+  <object id="37" x="2992" y="191.333" width="397.333" height="16.6667"/>
+  <object id="38" x="3104.67" y="144.667" width="126.667" height="52"/>
+  <object id="39" x="3088" y="160.667" width="158.667" height="31.3333"/>
+  <object id="40" x="3072.67" y="176" width="495.333" height="32.6667"/>
+  <object id="41" x="3264" y="143.333" width="160.667" height="41.3333"/>
+  <object id="42" x="3424.67" y="160.667" width="14.6667" height="13.3333"/>
+  <object id="43" x="3567.33" y="176" width="272" height="31.3333"/>
+ </objectgroup>
+ <objectgroup name="Plateform"/>
+ <layer name="Moon" width="240" height="13">
+  <data encoding="base64" compression="zlib">
+   eJzt07ENgDAUQ0GPkNTALMD+AwEdf4UUKBR30uvdOAH43tWSu3ra7CXAqKUna7X12UuAUXv99qhO/wUAAAAAAAAAAH7gBahBBJM=
+  </data>
+ </layer>
+ <layer name="FondMontagne" width="240" height="13">
+  <data encoding="base64" compression="zlib">
+   eJzt2DEKgDAMQNEeIQesd2k9uXUoFcHBSYLvLVmzfAgpBQAAAPijPb7eAHirjm63WBPIo41me6ypYcin3hrWMeQx7+fZcNcvpHG9o5t+IY3z9+z/DADAkwOC4g3c
+  </data>
+ </layer>
+</map>
