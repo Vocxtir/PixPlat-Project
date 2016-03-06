@@ -25,9 +25,10 @@ public class PlayScreen implements Screen {
     public PlayScreen(PixPlat PP){
         this.game = PP;
        // texture = new Texture("welcome.jpg");
-        this.hud = new HUD(game.batch);
+
         gameCam=new OrthographicCamera();
         gamePort = new FitViewport(PixPlat.V_WIDTH, PixPlat.V_HEIGHT, gameCam);
+        this.hud = new HUD(game.batch);
     }
 
     @Override
@@ -37,7 +38,7 @@ public class PlayScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(1, 0, 0, 1);
+        Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);//Clean le screen
 
         //Ce qui va etre montré

@@ -53,19 +53,20 @@ public class HUD {
         //Formatage des labels
         this.playerLife = new Label("Life :"+String.format("%03d", this.life), new Label.LabelStyle(new BitmapFont(), com.badlogic.gdx.graphics.Color.WHITE ));
         this.playerSpellPoint = new Label("SpellPoints :"+String.format("%03d", this.spellPoint), new Label.LabelStyle(new BitmapFont(), com.badlogic.gdx.graphics.Color.WHITE ));
-        this.playerMoney = this.playerSpellPoint = new Label("Pix :"+String.format("%05d", this.money), new Label.LabelStyle(new BitmapFont(), com.badlogic.gdx.graphics.Color.WHITE ));
-        this.worldLevel = this.playerSpellPoint = new Label("Level :"+this.worldLevelString, new Label.LabelStyle(new BitmapFont(), com.badlogic.gdx.graphics.Color.WHITE ));
+        this.playerMoney =  new Label("Pix :"+String.format("%05d", this.money), new Label.LabelStyle(new BitmapFont(), com.badlogic.gdx.graphics.Color.WHITE ));
+        this.worldLevel = new Label("Level :"+this.worldLevelString, new Label.LabelStyle(new BitmapFont(), com.badlogic.gdx.graphics.Color.WHITE ));
 
         //repartion des labels sur la table
         //expandX() : etale le label sur toute la longueur de l'ecran, pad permet de subdivise
-        table.add(playerLife).expandX().padTop(5);
-        table.add(playerMoney).expandX().padTop(5);
-        table.add(worldLevel).expandX().padTop(5);
-
+        table.add(playerLife).expandX().padTop(1);
+        table.add(worldLevel).expandX().padTop(1);
+        table.add(playerMoney).expandX().padTop(1);
         //ajout d'une nouvelle ligne dans la table, les labels sont donc en dessous des premiers
+
+
         table.row();
 
-        table.add(playerSpellPoint).expandX();
+        table.add(playerSpellPoint).expandX().padTop(1);
 
         //Ajouter la table au stage
         stage.addActor(table);

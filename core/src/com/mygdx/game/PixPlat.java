@@ -15,8 +15,8 @@ import com.sun.prism.image.ViewPort;
 
 public class PixPlat extends Game {
 	public SpriteBatch batch;//conteneur des images du jeu, très gourmand en mémoire, 1 public dans la main class de l'app
-	public static final int V_WIDTH=400;
-	public static final int V_HEIGHT = 208;
+	public static final int V_WIDTH = 800;
+	public static final int V_HEIGHT = 480;
 
 	@Override
 	public void create () {
