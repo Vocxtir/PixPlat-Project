@@ -30,6 +30,15 @@ public class PixPlat extends Game {
 	}
 
 	@Override
+	public void pause() {
+
+	}
+
+	@Override
+	public void resume() {
+
+	}
+	@Override
 	public void render () {
 		super.render();
 		/*
