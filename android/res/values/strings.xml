@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">my-gdx-game</string>
+    <string name="app_name">Pix\'Plat</string>
+    <string name="startButton">Let\'s Pix a bit !</string>
+    <string name="saved_high_score_default">0</string>
+    <string name="saved_high_score">savedHighScore</string>
+    <string name="lastScore">Your last score : </string>
+
+    <string name="tabBlank">    </string>
 
 </resources>

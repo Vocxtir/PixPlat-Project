@@ -24,6 +24,8 @@ import com.mygdx.game.PixPlat;
 import com.mygdx.game.Scenes.HUD;
 import com.mygdx.game.Sprites.Hero;
 
+import javax.naming.Context;
+
 /**
  * Created by Théo on 25/02/2016.
  */
@@ -148,6 +150,10 @@ public class PlayScreen implements Screen {
         game.batch.draw(texture, 0, 0);//Draw la texture
         game.batch.end();//Ferme le batch
         */
+    }
+
+    private void endScore(int score){
+
     }
 
     @Override
