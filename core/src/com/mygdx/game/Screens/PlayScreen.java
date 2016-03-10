@@ -1,6 +1,7 @@
 package com.mygdx.game.Screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -21,6 +22,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygdx.game.PixPlat;
 import com.mygdx.game.Scenes.HUD;
+import com.mygdx.game.Sprites.Hero;
 
 /**
  * Created by Théo on 25/02/2016.
@@ -30,6 +32,7 @@ public class PlayScreen implements Screen {
     private Viewport gamePort;//ViewPort permet d'arranger l'affichage selon la taille de l'ecran
     private PixPlat game;
     private HUD hud;
+    private Hero player;
 
     //Tiled map
     private TmxMapLoader mapLoader;//le chargeur de map
@@ -47,23 +50,25 @@ public class PlayScreen implements Screen {
 
         gameCam=new OrthographicCamera();
         //Permet de garder les ratios visuel (en cas de zoom/dezoom
-        gamePort = new FitViewport(PixPlat.V_WIDTH, PixPlat.V_HEIGHT, gameCam);
+        gamePort = new FitViewport(PixPlat.V_WIDTH / PixPlat.PPM, PixPlat.V_HEIGHT / PixPlat.PPM, gameCam);
 
-        //le HUD
-        this.hud = new HUD(game.batch);
+
 
         //Charge la map
         this.mapLoader = new TmxMapLoader();
         this. map = mapLoader.load("Level1.tmx");
-        this. renderer = new OrthogonalTiledMapRenderer(map);
+        this. renderer = new OrthogonalTiledMapRenderer(map, 1 / PixPlat.PPM);
 
         //Permet de centrer la caméra au début du niveau
         gameCam.position.set(gamePort.getWorldWidth() / 2, gamePort.getWorldHeight() / 2, 0);//Etre sur de commencer au DEBUT DE LA MAP
         //Et pas au centre X Y O,O
 
-        this.world = new World(new Vector2(0, 0), true);
+        this.world = new World(new Vector2(0, -10), true);
         this.b2dr = new Box2DDebugRenderer();
+        this.player = new Hero(world);
 
+        //le HUD
+        this.hud = new HUD(game.batch, this.player);
         //Pour gerer les objets du mondes
         BodyDef bdef = new BodyDef();
         PolygonShape shape = new PolygonShape();
@@ -77,11 +82,11 @@ public class PlayScreen implements Screen {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
             bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set(rect.getX() + rect.getWidth()/2, rect.getY() + rect.getHeight()/2);
+            bdef.position.set( (rect.getX() + rect.getWidth()/2)/ PixPlat.PPM , (rect.getY() + rect.getHeight()/2)/ PixPlat.PPM);
 
             body = world.createBody(bdef);
 
-            shape.setAsBox(rect.getWidth()/2, rect.getHeight()/2);
+            shape.setAsBox( (rect.getWidth()/2) / PixPlat.PPM, (rect.getHeight()/2) / PixPlat.PPM);
             fdef.shape = shape;
             body.createFixture(fdef);
 
@@ -97,14 +102,23 @@ public class PlayScreen implements Screen {
     }
 
     public void handleInput(float dt){
-        if(Gdx.input.isTouched()){
-            gameCam.position.x += 100 * dt;
+        if(Gdx.input.isKeyJustPressed(Input.Keys.UP)){
+            player.b2body.applyLinearImpulse(new Vector2(0, 4f), player.b2body.getWorldCenter(), true);
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT) && player.b2body.getLinearVelocity().x <= 2){
+             player.b2body.applyLinearImpulse(new Vector2(0.1f, 0), player.b2body.getWorldCenter(), true);//Vector2(vitesse dans x, vitesse dans y), direction
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.LEFT) && player.b2body.getLinearVelocity().x >= -2){
+            player.b2body.applyLinearImpulse(new Vector2(-0.1f, 0), player.b2body.getWorldCenter(), true);//Vector2(vitesse dans x, vitesse dans y), direction
         }
     }
 
     //Update le monde
     public void update(float dt){
         handleInput(dt);
+        world.step(1 / 60f, 6, 2);//Comment deux corps réagissent quand ils se cognent
+
+        gameCam.position.x = player.b2body.getPosition().x;
         gameCam.update();
         renderer.setView(gameCam);
 

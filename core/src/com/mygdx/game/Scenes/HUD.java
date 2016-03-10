@@ -10,7 +10,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygdx.game.PixPlat;
 import com.badlogic.gdx.graphics.Color;
-
+import com.mygdx.game.Sprites.Hero;
 
 
 /**
@@ -32,13 +32,13 @@ public class HUD {
     Label playerMoney;
     Label worldLevel;
 
-    public HUD(SpriteBatch sb) {
+    public HUD(SpriteBatch sb, Hero player) {
         this.money=0;
         //Mettre Life au max de pdv du perso, 100 est arbitraire
-        this.life=100;
+        this.life=player.getLife();
 
         //Mettre spellPoint au max de spellpoint du perso, 100 est arbitraire
-        this.spellPoint=100;
+        this.spellPoint=player.getSpellPoint();
 
         //Mettre le bon nom de niveau evidemment
         this.worldLevelString = "1-1";

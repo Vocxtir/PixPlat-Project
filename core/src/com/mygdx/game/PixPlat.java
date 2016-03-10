@@ -22,6 +22,7 @@ public class PixPlat extends Game {
 	public SpriteBatch batch;//conteneur des images du jeu, très gourmand en mémoire, 1 public dans la main class de l'app
 	public static final int V_WIDTH = 500 ;//TROUVER COMMENT AVOIR LES COORDONNEES
 	public static final int V_HEIGHT = 280;
+	public static final float PPM = 100;
 
 	@Override
 	public void create () {
