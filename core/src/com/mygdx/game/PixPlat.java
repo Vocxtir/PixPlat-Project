@@ -1,5 +1,6 @@
 package com.mygdx.game;
 
+
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -12,17 +13,20 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygdx.game.Screens.PlayScreen;
 import com.sun.prism.image.ViewPort;
 
+import java.awt.GraphicsDevice;
+
 
 public class PixPlat extends Game {
+
+
 	public SpriteBatch batch;//conteneur des images du jeu, très gourmand en mémoire, 1 public dans la main class de l'app
-	public static final int V_WIDTH = 800;
-	public static final int V_HEIGHT = 480;
+	public static final int V_WIDTH = 500 ;//TROUVER COMMENT AVOIR LES COORDONNEES
+	public static final int V_HEIGHT = 280;
 
 	@Override
 	public void create () {
 		batch = new SpriteBatch();//Creer le batch
 		setScreen(new PlayScreen(this));//Set l'image de départ
-
 	}
 
 	@Override
