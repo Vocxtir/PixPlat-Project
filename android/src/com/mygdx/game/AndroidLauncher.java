@@ -16,6 +16,7 @@ import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 
 public class AndroidLauncher extends AndroidApplication {
 	AndroidApplicationConfiguration config ;
+
 	@Override
 	protected void onCreate (Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

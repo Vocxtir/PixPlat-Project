@@ -13,12 +13,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 
 public class MainMenuActivity extends Activity {
-
     public static MediaPlayer startSong ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         SharedPreferences sharedPref = getSharedPreferences("PixSave", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
 
