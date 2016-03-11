@@ -22,6 +22,9 @@ public class AndroidLauncher extends AndroidApplication {
 	@Override
 	protected void onCreate (Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		SharedPreferences sharedPref = getSharedPreferences("PixSave", Context.MODE_PRIVATE);
+		SharedPreferences.Editor editor = sharedPref.edit();
+
 		config  = new AndroidApplicationConfiguration();
 		initialize(new PixPlat(), config);
 

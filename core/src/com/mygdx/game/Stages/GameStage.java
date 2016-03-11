@@ -2,6 +2,7 @@ package com.mygdx.game.Stages;
 
 /**
  * Created by Vocxtir on 06/03/2016.
+ *  * Correspond au début du projet, n'est pas réutilisé par la suite
  */
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.physics.box2d.Body;

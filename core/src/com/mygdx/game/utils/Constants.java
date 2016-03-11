@@ -4,6 +4,7 @@ import com.badlogic.gdx.math.Vector2;
 
 /**
  * Created by Vocxtir on 06/03/2016.
+ * Correspond au début du projet, n'est pas réutilisé par la suite
  */
 
 public class Constants {

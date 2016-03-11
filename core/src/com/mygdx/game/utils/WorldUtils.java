@@ -2,6 +2,7 @@ package com.mygdx.game.utils;
 
 /**
  * Created by Vocxtir on 06/03/2016.
+ *  * Correspond au début du projet, n'est pas réutilisé par la suite
  */
 
         import com.badlogic.gdx.math.Vector2;
