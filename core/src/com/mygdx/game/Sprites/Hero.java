@@ -36,6 +36,11 @@ public class Hero extends Sprite{
     private int life;
     private int spellPoint;
 
+    /**
+     *
+     * @param world
+     * @param screen
+     */
     public Hero(World world, PlayScreen screen){
         super(screen.getAtlas().findRegion("klonoa_still"));
         this.world = world;
@@ -73,6 +78,11 @@ public class Hero extends Sprite{
         else return State.STAND;
     }
 
+    /**
+     *
+     * @param dt
+     * @return TextureRegion
+     */
     public TextureRegion getFrame(float dt){
         TextureRegion region = herostand;
 

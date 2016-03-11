@@ -22,13 +22,7 @@ public class Pix extends InterractiveTileObj{
 
     public Pix(World world, TiledMap map, Rectangle bounds) {
         super(world, map, bounds);
-
         Random r = new Random();
         this.value = minValue + r.nextInt(maxValue - minValue);
-
-
-
     }
-
-
 }

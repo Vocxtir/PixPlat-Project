@@ -20,6 +20,12 @@ public abstract class InterractiveTileObj {
     protected Rectangle bounds;
     protected Body body;
 
+    /**
+     *
+     * @param world
+     * @param map
+     * @param bounds
+     */
     public InterractiveTileObj(World world, TiledMap map, Rectangle bounds){
         this.world = world;
         this.map = map;

@@ -23,6 +23,10 @@ public class MainMenuScreen implements Screen {
     private HUD hud;
     Texture texture;
 
+    /**
+     * 
+     * @param PP
+     */
     public MainMenuScreen(PixPlat PP){
         this.game = PP;
         texture = new Texture(Gdx.files.internal("data/startscreen.png"));

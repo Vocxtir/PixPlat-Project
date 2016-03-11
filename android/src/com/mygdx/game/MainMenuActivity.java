@@ -43,6 +43,10 @@ public class MainMenuActivity extends Activity {
 
     }
 
+    /**
+     *
+     * @return MediaPlayer
+     */
     public static MediaPlayer getSong(){
         return startSong ;
     }

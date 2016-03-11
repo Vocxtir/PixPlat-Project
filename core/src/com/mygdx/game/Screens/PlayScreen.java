@@ -51,10 +51,18 @@ public class PlayScreen implements Screen {
     private World world;
     private Box2DDebugRenderer b2dr;
 
-
+    /**
+     *
+     * @return Hero
+     */
     public Hero getPlayer(){
         return this.player;
     }
+
+    /**
+     *
+     * @param PP
+     */
     public PlayScreen(PixPlat PP){
         this.atlas = new TextureAtlas("Charac/PixPlat.pack");
         this.game = PP;
@@ -94,14 +102,26 @@ public class PlayScreen implements Screen {
 
     }
 
+    /**
+     *
+     * @return TextureAtlas
+     */
     public TextureAtlas getAtlas(){
         return this.atlas;
     }
 
+    /**
+     *
+     * @return OrthograpicCamera
+     */
     public OrthographicCamera getGameCam(){
         return this.gameCam;
     }
 
+    /**
+     *
+     * @return OrthogonalTiledMapRenderer
+     */
     public OrthogonalTiledMapRenderer getRenderer(){
         return this.renderer;
     }
@@ -140,10 +160,18 @@ public class PlayScreen implements Screen {
 
     }
 
+    /**
+     *
+     * @return TiledMap
+     */
     public TiledMap getMap(){
         return this.map;
     }
 
+    /**
+     *
+     * @return World
+     */
     public World getWorld(){
         return this.world;
     }
