@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 
+import com.mygdx.game.MainMenuActivity ;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.backends.android.AndroidApplication;
@@ -23,6 +25,18 @@ public class AndroidLauncher extends AndroidApplication {
 		config  = new AndroidApplicationConfiguration();
 		initialize(new PixPlat(), config);
 
+	}
+
+	@Override
+	protected void onPause(){
+		super.onPause();
+		MainMenuActivity.getSong().pause() ;
+	}
+
+	@Override
+	protected void onResume(){
+		super.onResume();
+		MainMenuActivity.getSong().start(); ;
 	}
 
 	public void helloGit(){

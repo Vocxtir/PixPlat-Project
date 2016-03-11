@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -36,7 +37,17 @@ public class MainMenuActivity extends Activity {
 
     }
 
+    @Override
+    protected void onPause(){
+        super.onPause();
+
+    }
+
+    public static MediaPlayer getSong(){
+        return startSong ;
+    }
     public void androidLauncher(View v){
+        //log.i("Somewhat launching");
         startActivity(new Intent(this, AndroidLauncher.class));
     }
 }
