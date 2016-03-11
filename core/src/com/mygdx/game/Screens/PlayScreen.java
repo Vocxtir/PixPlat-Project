@@ -109,6 +109,8 @@ public class PlayScreen implements Screen {
         handleInput(dt);
         world.step(1 / 60f, 6, 2);//Comment deux corps réagissent quand ils se cognent
 
+        player.update(dt);
+
         gameCam.position.x = player.b2body.getPosition().x;
         gameCam.update();
         renderer.setView(gameCam);
