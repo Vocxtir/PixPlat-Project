@@ -10,12 +10,16 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.PixPlat;
+import com.mygdx.game.Screens.PlayScreen;
 
 /**
  * Created by Théo on 11/03/2016.
  */
 public class B2worldMaker {
-    public B2worldMaker(World world, TiledMap map){
+    public B2worldMaker(PlayScreen playscreen){
+        World world = playscreen.getWorld();
+        TiledMap map = playscreen.getMap();
+
         //Pour gerer les objets du mondes
         BodyDef bdef = new BodyDef();
         PolygonShape shape = new PolygonShape();

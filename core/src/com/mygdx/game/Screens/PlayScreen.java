@@ -22,6 +22,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygdx.game.Outils.B2worldMaker;
+import com.mygdx.game.Outils.InputHandler;
 import com.mygdx.game.PixPlat;
 import com.mygdx.game.Scenes.HUD;
 import com.mygdx.game.Sprites.Hero;
@@ -37,6 +38,7 @@ public class PlayScreen implements Screen {
     private PixPlat game;
     private HUD hud;
     private Hero player;
+    private InputHandler input;
 
     private TextureAtlas atlas;
 
@@ -48,8 +50,11 @@ public class PlayScreen implements Screen {
     //Box2d
     private World world;
     private Box2DDebugRenderer b2dr;
-    //Texture texture;
 
+
+    public Hero getPlayer(){
+        return this.player;
+    }
     public PlayScreen(PixPlat PP){
         this.atlas = new TextureAtlas("Charac/PixPlat.pack");
         this.game = PP;
@@ -77,12 +82,15 @@ public class PlayScreen implements Screen {
 
 
         //Le monde
-        new B2worldMaker(world, map);
+        new B2worldMaker(this);
 
         //Le perso
         this.player = new Hero(world, this);
         //le HUD
         this.hud = new HUD(game.batch, this.player);
+
+        this.input = new InputHandler(this);
+        Gdx.input.setInputProcessor(this.input);
 
     }
 
@@ -90,8 +98,15 @@ public class PlayScreen implements Screen {
         return this.atlas;
     }
 
+    public OrthographicCamera getGameCam(){
+        return this.gameCam;
+    }
 
+    public OrthogonalTiledMapRenderer getRenderer(){
+        return this.renderer;
+    }
 
+/*
     public void handleInput(float dt){
         if(Gdx.input.isKeyJustPressed(Input.Keys.UP)){
             player.b2body.applyLinearImpulse(new Vector2(0, 4f), player.b2body.getWorldCenter(), true);
@@ -103,10 +118,13 @@ public class PlayScreen implements Screen {
             player.b2body.applyLinearImpulse(new Vector2(-0.1f, 0), player.b2body.getWorldCenter(), true);//Vector2(vitesse dans x, vitesse dans y), direction
         }
     }
+*/
 
+    /*
     //Update le monde
     public void update(float dt){
         handleInput(dt);
+
         world.step(1 / 60f, 6, 2);//Comment deux corps réagissent quand ils se cognent
 
         player.update(dt);
@@ -114,16 +132,26 @@ public class PlayScreen implements Screen {
         gameCam.position.x = player.b2body.getPosition().x;
         gameCam.update();
         renderer.setView(gameCam);
-
     }
+    */
+
     @Override
     public void show() {
 
     }
 
+    public TiledMap getMap(){
+        return this.map;
+    }
+
+    public World getWorld(){
+        return this.world;
+    }
+
+
     @Override
     public void render(float delta) {
-        update(delta);
+     //   update(delta);
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);//Clean le screen
 
@@ -140,7 +168,6 @@ public class PlayScreen implements Screen {
 
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
-
     }
 
     private void endScore(int score){

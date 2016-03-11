@@ -1,9 +1,11 @@
 package com.mygdx.game.Sprites;
 
+import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.CircleShape;
@@ -17,14 +19,12 @@ import com.mygdx.game.Screens.PlayScreen;
 /**
  * Created by Théo on 10/03/2016.
  */
-public class Hero extends Sprite {
-    public enum State {RUN, STAND, FALL, ATCK, JMP};
+public class Hero extends Sprite{
+
+
+    public enum State {STAND,JMP, FALL, RUN};
     public State currentState;
     public State previousState;
-
-    private Animation heroRun;
-    private Animation heroAtck;
-    private Animation heroJmp;
 
     private boolean runRight;
     private float stateTimer;
@@ -45,16 +45,6 @@ public class Hero extends Sprite {
         stateTimer = 0;
         runRight = true;
 
-        Array<TextureRegion> frames = new Array<TextureRegion>();
-
-        for (int i =1; i< 4; i++){
-            frames.add(new TextureRegion(getTexture(), i * 48, 0, 48, 48));
-        }
-        heroRun = new Animation(0.1f, frames);
-        frames.clear();
-
-        for (int i =4; i<)
-
         this.life = 100;
         this.spellPoint = 100;
         defineHero();
@@ -69,6 +59,36 @@ public class Hero extends Sprite {
     }
     public int getSpellPoint(){
         return this.spellPoint;
+    }
+    public State getState(){
+        if(b2body.getLinearVelocity().y>0){
+            return State.JMP;
+        }
+        else if (b2body.getLinearVelocity().y<0){
+            return State.FALL;
+        }
+        else if (b2body.getLinearVelocity().x!=0){
+            return State.RUN;
+        }
+        else return State.STAND;
+    }
+
+    public TextureRegion getFrame(float dt){
+        TextureRegion region = herostand;
+
+        if((b2body.getLinearVelocity().x<0 || !runRight) && region.isFlipX()){
+            region.flip(true, false);
+            runRight = true;
+        }
+        else if ((b2body.getLinearVelocity().x>0 || runRight ) && !region.isFlipX()){
+            region.flip(true, false);
+            runRight = false;
+        }
+
+        stateTimer = currentState == previousState ? stateTimer+dt : 0;
+
+        previousState=currentState;
+        return region;
     }
 
     public void setLife(int l){
@@ -86,13 +106,35 @@ public class Hero extends Sprite {
 
         FixtureDef fedf = new FixtureDef();
         CircleShape shape = new CircleShape();
-        shape.setRadius(20/PixPlat.PPM);
+        shape.setRadius(15/PixPlat.PPM);
 
         fedf.shape = shape;
         b2body.createFixture(fedf);
     }
 
     public void update(float deltaTime){
-        setPosition(b2body.getPosition().x - getWidth()/2, b2body.getPosition().y - getHeight() / 2);
+        setPosition(b2body.getPosition().x - getWidth() / 2, b2body.getPosition().y - getHeight() / 2);
     }
+
+    public void toRight(){
+        b2body.applyLinearImpulse(new Vector2(0.1f, 0), b2body.getWorldCenter(), true);
+        currentState=State.RUN;
+
+    }
+
+    public void toLeft(){
+        b2body.applyLinearImpulse(new Vector2(-0.1f, 0), b2body.getWorldCenter(), true);
+        currentState=State.RUN;
+    }
+
+    public boolean jump(){
+        if (currentState==State.RUN || currentState==State.STAND || previousState!=State.JMP ) {
+            b2body.applyLinearImpulse(new Vector2(0, 4f), b2body.getWorldCenter(), true);
+            currentState=State.JMP;
+            previousState=State.JMP;
+            return true;
+        }
+        else return false;
+    }
+
 }
