@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygdx.game.PixPlat;
@@ -16,7 +17,7 @@ import com.mygdx.game.Sprites.Hero;
 /**
  * Created by Théo on 25/02/2016.
  */
-public class HUD {
+public class HUD implements Disposable{
     public Stage stage;
     private Viewport viewport;//Viewport parce que quand le monde bouge on veut garder le HUD au meme endroit
 
@@ -70,6 +71,12 @@ public class HUD {
 
         //Ajouter la table au stage
         stage.addActor(table);
+
+    }
+
+    @Override
+    public void dispose(){
+        stage.dispose();
 
     }
 

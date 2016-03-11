@@ -5,6 +5,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -20,6 +21,7 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.mygdx.game.Outils.B2worldMaker;
 import com.mygdx.game.PixPlat;
 import com.mygdx.game.Scenes.HUD;
 import com.mygdx.game.Sprites.Hero;
@@ -36,6 +38,8 @@ public class PlayScreen implements Screen {
     private HUD hud;
     private Hero player;
 
+    private TextureAtlas atlas;
+
     //Tiled map
     private TmxMapLoader mapLoader;//le chargeur de map
     private TiledMap map;//la map
@@ -47,6 +51,7 @@ public class PlayScreen implements Screen {
     //Texture texture;
 
     public PlayScreen(PixPlat PP){
+        this.atlas = new TextureAtlas("Charac/PixPlat.pack");
         this.game = PP;
        // texture = new Texture("welcome.jpg");
 
@@ -67,41 +72,25 @@ public class PlayScreen implements Screen {
 
         this.world = new World(new Vector2(0, -10), true);
         this.b2dr = new Box2DDebugRenderer();
-        this.player = new Hero(world);
 
+
+
+
+        //Le monde
+        new B2worldMaker(world, map);
+
+        //Le perso
+        this.player = new Hero(world, this);
         //le HUD
         this.hud = new HUD(game.batch, this.player);
-        //Pour gerer les objets du mondes
-        BodyDef bdef = new BodyDef();
-        PolygonShape shape = new PolygonShape();
-        FixtureDef fdef = new FixtureDef();
-        Body body;
-
-        //On recupere les "OBJETS" definis dans TiledMapEditor, index commence a 0 et part du bas des LAYERS, ici on veut le SOL
-        for(MapObject object : map.getLayers().get(2).getObjects().getByType(RectangleMapObject.class)){
-
-            //On recup le rectangle du layer
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
-
-            bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set( (rect.getX() + rect.getWidth()/2)/ PixPlat.PPM , (rect.getY() + rect.getHeight()/2)/ PixPlat.PPM);
-
-            body = world.createBody(bdef);
-
-            shape.setAsBox( (rect.getWidth()/2) / PixPlat.PPM, (rect.getHeight()/2) / PixPlat.PPM);
-            fdef.shape = shape;
-            body.createFixture(fdef);
-
-        }
-        // A COMPLETER POUR LES PIXS SELON LE MEME PRINCIPE
-        //POUR LES PIXS
-        for(MapObject object : map.getLayers().get(2).getObjects().getByType(RectangleMapObject.class)){
-
-        }
-
-
 
     }
+
+    public TextureAtlas getAtlas(){
+        return this.atlas;
+    }
+
+
 
     public void handleInput(float dt){
         if(Gdx.input.isKeyJustPressed(Input.Keys.UP)){
@@ -142,14 +131,14 @@ public class PlayScreen implements Screen {
 
 
         //Ce qui va etre montré
+        game.batch.setProjectionMatrix(gameCam.combined);
+        game.batch.begin();
+        player.draw(game.batch);
+        game.batch.end();
+
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
-        /*
-        game.batch.setProjectionMatrix(gameCam.combined);//Render seulement ce que la camera peut voir
-        game.batch.begin();//Ouvre le batch
-        game.batch.draw(texture, 0, 0);//Draw la texture
-        game.batch.end();//Ferme le batch
-        */
+
     }
 
     private void endScore(int score){
@@ -178,6 +167,10 @@ public class PlayScreen implements Screen {
 
     @Override
     public void dispose() {
-
+        map.dispose();
+        renderer.dispose();
+        world.dispose();
+        b2dr.dispose();
+        hud.dispose();
     }
 }

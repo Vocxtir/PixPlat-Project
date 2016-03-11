@@ -1,0 +1,96 @@
+
+PixPlat.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+BadGuy
+  rotate: false
+  xy: 1, 205
+  size: 264, 644
+  orig: 264, 644
+  offset: 0, 0
+  index: -1
+klonoa_fight
+  rotate: false
+  xy: 267, 749
+  size: 650, 100
+  orig: 650, 100
+  offset: 0, 0
+  index: -1
+enemy1_c
+  rotate: false
+  xy: 267, 647
+  size: 450, 100
+  orig: 450, 100
+  offset: 0, 0
+  index: -1
+enemy1_d
+  rotate: false
+  xy: 267, 545
+  size: 450, 100
+  orig: 450, 100
+  offset: 0, 0
+  index: -1
+enemy1_e
+  rotate: false
+  xy: 267, 443
+  size: 450, 100
+  orig: 450, 100
+  offset: 0, 0
+  index: -1
+enemy1_f
+  rotate: false
+  xy: 1, 103
+  size: 200, 100
+  orig: 200, 100
+  offset: 0, 0
+  index: -1
+Rupees
+  rotate: false
+  xy: 719, 615
+  size: 137, 132
+  orig: 137, 132
+  offset: 0, 0
+  index: -1
+enemy1_a
+  rotate: false
+  xy: 919, 749
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+enemy1_b
+  rotate: false
+  xy: 267, 341
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+klonoa_idle
+  rotate: false
+  xy: 1, 1
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+klonoa_ko
+  rotate: false
+  xy: 719, 513
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+klonoa_run
+  rotate: false
+  xy: 858, 647
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+klonoa_still
+  rotate: false
+  xy: 267, 239
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
